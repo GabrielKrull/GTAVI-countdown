@@ -1,0 +1,11 @@
+<resources>
+    <!-- Tema da Activity. Usa um tema de plataforma como pai para não
+         exigir dependência do AppCompat/Material Components (views), já
+         que a UI é 100% Compose. O fundo escuro evita um flash branco
+         na abertura do app. -->
+    <style name="Theme.GtaViCountdown" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/splash_background</item>
+        <item name="android:statusBarColor">@color/splash_background</item>
+        <item name="android:navigationBarColor">@color/splash_background</item>
+    </style>
+</resources>

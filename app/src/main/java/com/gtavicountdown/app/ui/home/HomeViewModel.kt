@@ -69,7 +69,7 @@ class HomeViewModel : ViewModel() {
         val now = Instant.now()
         var remaining = Duration.between(now, target)
 
-        if (remaining.isNegative) {
+        if (remaining.isNegative || remaining.isZero) {
             return CountdownState(days = 0, hours = 0, minutes = 0, seconds = 0, isFinished = true)
         }
 

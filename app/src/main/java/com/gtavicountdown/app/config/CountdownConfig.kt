@@ -1,8 +1,9 @@
 package com.gtavicountdown.app.config
 
 import java.time.Instant
-import java.time.ZoneOffset
-import java.time.ZonedDateTime
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.ZoneId
 
 /**
  * Fonte única de verdade para todas as datas relacionadas ao countdown.
@@ -23,18 +24,30 @@ import java.time.ZonedDateTime
 object CountdownConfig {
 
     /**
-     * Lançamento oficial: 19 de novembro de 2026.
-     * A Rockstar confirmou que o lançamento acontece à meia-noite local
-     * em cada fuso horário. Para a v0.1, simplificamos usando meia-noite
-     * UTC como referência; isso será refinado quando tratarmos fuso
-     * horário por região (ver item 17 do planejamento).
+     * Fuso oficial do projeto para as duas datas principais (v0.1).
+     * Centralizado aqui para facilitar suporte a outros fusos no futuro.
      */
-    val RELEASE_DATE: Instant = ZonedDateTime.of(
-        2026, 11, 19, 0, 0, 0, 0, ZoneOffset.UTC
-    ).toInstant()
+    private val ZONE_SAO_PAULO: ZoneId = ZoneId.of("America/Sao_Paulo")
 
-    /** Liberação do pré-carregamento / download: 12 de novembro de 2026. */
-    val PRELOAD_DATE: Instant = ZonedDateTime.of(
-        2026, 11, 12, 0, 0, 0, 0, ZoneOffset.UTC
-    ).toInstant()
+    /**
+     * Lançamento oficial: 19 de novembro de 2026, meia-noite em Brasília.
+     * Ou seja: 19/11/2026 00:00 America/Sao_Paulo (= 19/11/2026 03:00 UTC).
+     *
+     * A Rockstar confirmou que o lançamento acontece à meia-noite local
+     * em cada fuso horário. Para a v0.1, fixamos Brasília como referência.
+     */
+    val RELEASE_DATE: Instant = LocalDate.of(2026, 11, 19)
+        .atTime(LocalTime.MIDNIGHT)
+        .atZone(ZONE_SAO_PAULO)
+        .toInstant()
+
+    /**
+     * Liberação do pré-carregamento / download: 12 de novembro de 2026,
+     * meia-noite em Brasília. Tratada como configuração do projeto
+     * (data não oficialmente confirmada pela Rockstar).
+     */
+    val PRELOAD_DATE: Instant = LocalDate.of(2026, 11, 12)
+        .atTime(LocalTime.MIDNIGHT)
+        .atZone(ZONE_SAO_PAULO)
+        .toInstant()
 }

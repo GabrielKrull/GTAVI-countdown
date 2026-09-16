@@ -3,9 +3,9 @@ package com.gtavicountdown.app
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import com.gtavicountdown.app.ui.home.HomeScreen
+import com.gtavicountdown.app.ui.theme.GtaViCountdownTheme
 
 /**
  * Ponto de entrada do app.
@@ -19,9 +19,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // MaterialTheme padrão por enquanto. Na v0.2 substituímos
-            // por GtaViCountdownTheme, nosso tema customizado.
-            MaterialTheme {
+            // v0.2: tema próprio com paleta neon. Escuro por padrão
+            // (segue o sistema via isSystemInDarkTheme).
+            GtaViCountdownTheme {
                 Surface {
                     HomeScreen()
                 }
