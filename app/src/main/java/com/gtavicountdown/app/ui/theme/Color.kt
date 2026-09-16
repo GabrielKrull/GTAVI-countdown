@@ -29,12 +29,12 @@ object GtaColors {
 
     // Cards: tom escuro neutro-quente, um degrau de luminosidade acima
     // da base roxa — separação por valor, sem borda neon.
-    val Surface = Color(0xFF17151C)
-    val Outline = Color(0xFF342F42)
+    val Surface = Color(0xFF3B0C3A)
+    val Outline = Color(0xFF702186)
 
     // Texto.
-    val OnDark = Color(0xFFFFFFFF)
-    val OnDarkSecondary = Color(0xFFB9B7C0)
+    val OnDark = Color(0xFF1A0E44)
+    val OnDarkSecondary = Color(0xFFDFD3FC)
 
     // Acentos pontuais — 100% paleta da logo (sem interpretação neon).
     // Filete e "zerou": rosa -> laranja da logo. Tertiary: azul da logo.

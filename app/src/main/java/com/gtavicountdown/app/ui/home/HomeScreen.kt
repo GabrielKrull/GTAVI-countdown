@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -102,8 +103,9 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
             contentDescription = "Logo de Grand Theft Auto VI",
             contentScale = ContentScale.Fit,
             modifier = Modifier
-                .fillMaxWidth(0.58f)
+                .fillMaxWidth(0.60f)
                 .heightIn(max = 220.dp)
+                .offset(x = (-8).dp)
         )
 
         Spacer(Modifier.height(14.dp))
@@ -145,7 +147,9 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
             title = "DOWNLOAD",
             subtitle = "Pré-carregamento • 12/11/2026",
             state = preload,
-            finishedMessage = "DOWNLOAD DISPONÍVEL!"
+            finishedMessage = "DOWNLOAD DISPONÍVEL!",
+            modifier = Modifier
+                .offset(x=(5).dp)
         )
 
         Spacer(Modifier.height(12.dp))
@@ -154,7 +158,9 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
             title = "LANÇAMENTO",
             subtitle = "Lançamento oficial • 19/11/2026",
             state = release,
-            finishedMessage = "GTA VI FOI LANÇADO! 🎉"
+            finishedMessage = "GTA VI FOI LANÇADO! 🎉",
+            modifier = Modifier
+                .offset(x=(5).dp)
         )
 
         Spacer(Modifier.height(20.dp))
@@ -164,7 +170,9 @@ fun HomeScreen(viewModel: HomeViewModel = viewModel()) {
             color = GtaColors.OnDarkSecondary.copy(alpha = 0.7f),
             fontSize = 10.sp,
             textAlign = TextAlign.Center,
-            lineHeight = 14.sp
+            lineHeight = 14.sp,
+            modifier = Modifier
+                .offset(x=(5).dp)
         )
 
         Spacer(Modifier.height(20.dp))
@@ -176,7 +184,8 @@ private fun CountdownCard(
     title: String,
     subtitle: String,
     state: CountdownState,
-    finishedMessage: String
+    finishedMessage: String,
+    modifier: Modifier
 ) {
     Card(
         modifier = Modifier
